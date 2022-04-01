@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="20.11.1.1">
+<procedure name="main">
+<interface/>
+<body>
+<l>Image_Name := 'Map.jpg'</l>
+<l>read_image (Image, Image_Name)</l>
+<l>get_image_size (Image, Width, Height)</l>
+<l>decompose3 (Image, Image1, Image2, Image3)</l>
+<l>rgb1_to_gray (Image1, GrayImage)</l>
+<l>threshold (GrayImage, Regions, 0, 60)</l>
+<l>opening_rectangle1 (Regions, RegionOpening1, 5, 100)</l>
+<l>closing_rectangle1 (RegionOpening1, RegionClosing1, 5, 100)</l>
+<l>opening_rectangle1 (Regions, RegionOpening2, 100, 5)</l>
+<l>closing_rectangle1 (RegionOpening2, RegionClosing2, 100, 5)</l>
+<l>union2 (RegionClosing1, RegionClosing2, RegionUnion)</l>
+<l>skeleton (RegionUnion, Skeleton)</l>
+<l>region_to_bin (RegionUnion, BinImage, 0, 255, Width, Height)</l>
+<l>write_image (BinImage, 'bmp', 0, Image_Name)</l>
+<c>* region_to_bin (Skeleton, BinImage, 0, 255, Width, Height</c>
+<l>* write_image (BinImage, 'bmp', 0, Image_Name + '_skeleton')</l>
+<c></c>
+<l>* rgb1_to_gray(Image, GrayImage)</l>
+<l>* threshold (GrayImage, Regions, 0, 54)</l>
+<l>* select_shape (Regions, SelectedRegions, 'phi', 'and', 0, 10)</l>
+<l>* opening (Regions, Regions, RegionOpening)</l>
+<c></c>
+<l>* threshold (GrayImage, Regions, 0, 128)</l>
+<l>* select_shape (Regions, SelectedRegions, 'area', 'and', 150, 99999)</l>
+<l>* skeleton (SelectedRegions, Skeleton)</l>
+<l>* region_to_bin (Skeleton, BinImage, 0, 255, Width, Height)</l>
+<l>* write_image (BinImage, 'bmp', 0, Image_Name + '_skeleton')</l>
+<l>* write_image (BinImage, 'bmp', 0, Image_Name + '_skeleton')</l>
+<l>* threshold (GrayImage, Regions, 6, 142)</l>
+<l>* select_shape (Regions, SelectedRegions, 'area', 'and', 0, 31381.5)</l>
+<l>* skeleton (SelectedRegions, Skeleton)</l>
+<l>* region_to_bin (Skeleton, BinImage, 0, 255, Width, Height)</l>
+<l>* write_image (BinImage, 'bmp', 0, Image_Name + '_skeleton')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
