@@ -28,5 +28,10 @@
 
 <video src="video/完整功能.mp4"></video>
 
++ 车身展示
 
+![car](README.assets/car.gif)
 
++ 避障展示
+
+![human](README.assets/human.gif)
